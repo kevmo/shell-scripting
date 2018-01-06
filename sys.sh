@@ -25,8 +25,14 @@ report_disk_space () {
 }
 
 report_home_space () {
-    echo "<h2>/usr/local space utilization</h2>
-          <pre>$(du -sh /usr/local/*)</pre>"
+    if [[ $(id -u) -eq 0 ]]; then
+        echo "<h2> Home space utilization (all users)</h2> \
+                <pre>$(du -sh /Users)</pre>"
+    else
+        echo "<h2> Home space utilization ($USER)</h2> \
+                <pre>$(du -sh ~)</pre>"
+    fi
+
     return
 }
 
