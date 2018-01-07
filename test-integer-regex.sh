@@ -2,7 +2,8 @@
 
 # evaluate the value of an integer
 
-INT=-5
+echo -n "Evaluate an integer: "
+read INT
 
 if [[ "$INT" =~ ^-?[0-9]+$ ]]; then
 
@@ -22,4 +23,7 @@ if [[ "$INT" =~ ^-?[0-9]+$ ]]; then
             echo "INT is odd"
         fi
     fi
+else
+    echo "Not an integer" >&2
+    exit 69
 fi

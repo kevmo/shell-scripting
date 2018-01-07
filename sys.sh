@@ -25,7 +25,7 @@ report_disk_space () {
 }
 
 report_home_space () {
-    if [[ $(id -u) -eq 0 ]]; then
+    if [[ $(id -u) -eq 0sudo  ]]; then
         echo "<h2> Home space utilization (all users)</h2> \
                 <pre>$(du -sh /Users)</pre>"
     else
